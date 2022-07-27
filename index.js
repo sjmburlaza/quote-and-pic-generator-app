@@ -43,4 +43,4 @@ function getTime() {
 }
 
 getTime();
-setInterval(getTime, 10000)
+setInterval(getTime, 1000)
