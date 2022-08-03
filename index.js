@@ -2,10 +2,10 @@ const numImagesAvailable = 982  //how many photos are total in the collection
 const collectionID = 928423   //the collection ID from the original url
 const container = document.querySelector('.container')
 
-function renderGalleryItem(randomNumber) {
+function renderBackgroundImg(randomNumber) {
   fetch(`https://source.unsplash.com/collection/${collectionID}/?sig=${randomNumber}`)
     .then((response) => {
-    //   console.log(response.url)
+      // console.log(response)
       container.style.backgroundImage = `url(${response.url})`;
       container.style.backgroundRepeat = "no-repeat";
       container.style.backgroundPosition = "top center";
@@ -14,10 +14,10 @@ function renderGalleryItem(randomNumber) {
   }
 
 let randomImageIndex = Math.floor(Math.random() * numImagesAvailable);
-renderGalleryItem(randomImageIndex);
+renderBackgroundImg(randomImageIndex);
 
 
-function giveAdvice() {
+function generateQuote() {
     fetch("https://type.fit/api/quotes")
     .then(function(response) {
         return response.json();
@@ -30,7 +30,7 @@ function giveAdvice() {
     })
 }
 
-giveAdvice();
+generateQuote();
 
 function getTime() {
     const d = new Date();
